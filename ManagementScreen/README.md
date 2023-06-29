@@ -1,8 +1,6 @@
 ## Management Screen
 
-Replicated Screen with Tech Stack (HTML, CSS, JS, Django, Apex Charts, DataTables.net)
-
-In this project, I have replicated a screen using a combination of several technologies and frameworks. The primary purpose of the project is to create a user-friendly and visually appealing interface that displays data using interactive charts and tables.
+In this project, I have implemeted a management screen using a combination of several technologies and frameworks. The primary purpose of the project is to create a user-friendly and visually appealing interface that displays data using interactive charts and tables.
 
 The Tech Stack used in this project includes:
 
@@ -18,8 +16,8 @@ Apex Charts: Apex Charts is a modern JavaScript charting library that offers a w
 
 DataTables.net: DataTables.net is a feature-rich JavaScript library used for creating advanced data tables. It provides functionalities like sorting, filtering, pagination, and searching in tabular data, enhancing the user's ability to explore and analyze the displayed data.
 
-By leveraging these technologies, I have replicated a screen that presents data in a visually pleasing manner, with interactive charts powered by Apex Charts and data tables powered by DataTables.net. The Django framework facilitates the backend operations, such as retrieving and processing data, while the frontend components built with HTML, CSS, and JS handle the presentation and user interaction.
+By leveraging these technologies, I have implemented a screen that presents data in a visually pleasing manner, with interactive charts powered by Apex Charts and data tables powered by DataTables.net. The Django framework facilitates the backend operations, such as retrieving and processing data, while the frontend components built with HTML, CSS, and JS handle the presentation and user interaction.
 
-The replicated screen aims to provide users with an intuitive and efficient way to view and analyze data, enabling them to make informed decisions based on the insights gained from the visualizations and tabular representations.
+The screen aims to provide users with an intuitive and efficient way to view and analyze data, enabling them to make informed decisions based on the insights gained from the visualizations and tabular representations.
 
 [Management Screen](https://drive.google.com/file/d/16khJ48G69PP6r0eOOP4u7XygjRQDsx_e/view?usp=sharing)
