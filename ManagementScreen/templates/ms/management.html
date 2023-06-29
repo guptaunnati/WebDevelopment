@@ -1,0 +1,1088 @@
+{% load static %}
+{% load seconds_to_hm %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Screen</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+    <script src=" {% static 'js/apexcharts.min.js' %}  "></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'ms/management.css' %}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav__left">
+            <img src="" alt="brand logo">
+            <h4>Management Live</h4>
+        </div>
+        <div class="nav__right">
+            <a class="nav__link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <a class="nav__link" href="#"><i class="fa fa-users" aria-hidden="true"></i> Admissions</a>
+            <div></div>
+        </div>
+    </nav>
+
+    <div id="root">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div id="sidebar_icon_color">
+                <i class="fa fa-2x fa-search" aria-hidden="true"></i>
+                <i class="fa fa-2x fa-home" aria-hidden="true"></i>
+                <i class="fa fa-2x fa-user" aria-hidden="true"></i>
+                <i class="fa fa-2x fa-sitemap" aria-hidden="true"></i>
+                <i class="fa fa-2x fa-suitcase" aria-hidden="true"></i>
+            </div>
+        </nav>
+
+        <main id="content">
+            <!-- Content Left -->
+            <div class="content__left">
+                <div id="content__left__wrapper">
+                <!-- Key Metrics Heading -->
+                    <div id="content__left__header" style="margin-top: 6px;">
+                    <h2 >
+                        Key Metrics
+                    </h2>
+                    </div>
+                    <!-- metric details -->
+                    <div id="content__left__top">
+                        <div class="metric_card" id="metric__1">
+                            <div class="metric_card__left">
+                                <p>Queue to registration</p>
+                                <h4 style="color: black;">Registration Time</h4>
+                            </div>
+                            <div class="metric_card__right">
+                                <div class="time">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm key_metrics.registration.time as avg_regtm%}
+                                    <span class="{% if key_metrics.registration.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">
+                                        {{avg_regtm}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric_card" >
+                            <div class="metric_card__left">
+                                <p>Registration to triage</p>
+                                <h4 style="color: black;">Time to triage</h4>
+                            </div>
+                            <div class="metric_card__right">
+                                <div class="time">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm key_metrics.triage_done.time as triage_done_tm%}						
+                                    <span class="{% if key_metrics.triage_done.time > graphs.AccidentEmergency.KPI %}time__red{%else%}time__green{%endif%}">
+                                            {{ triage_done_tm}}
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="metric_card">
+                            <div class="metric_card__left">
+                                <p>Triage to consult</p>
+                                <h4>Time to consult</h4>
+                            </div>
+                            <div class="metric_card__right">
+                                <div class="time">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm key_metrics.cons_done.time as cons_done_tm%}				
+                                    <span class="{% if key_metrics.cons_done.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">
+                                        {{cons_done_tm }}
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric_card">
+                            <div class="metric_card__left">
+                                <p>Triage end to discharge</p>
+                                <h4>In Zone Time</h4>
+                            </div>
+                            <div class="metric_card__right">
+                                <div class="time"><i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm key_metrics.in_zone.time as zone_time%}			
+                                    <span class="{% if key_metrics.in_zone.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">
+                                    {{zone_time }}
+                            </span></div>
+                            </div>
+                        </div>
+                        <div class="metric_card">
+                            <div class="metric_card__left">
+                                <p>Consultation to discharge</p>
+                                <h4>Treatment Time</h4>
+                            </div>
+                            <div class="metric_card__right">
+                                <div class="time"><i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm key_metrics.treatment.time as avg_treattm %}			
+                                    <span class="{% if key_metrics.treatment.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">
+                                    {{avg_treattm }}
+                            </span></div>
+                            </div>
+                        </div>
+                        <div class="metric_card">
+                            <div class="metric_card__left">
+                                <p>Lab order request to processing</p>
+                                <h4>Lab Processing Time</h4>
+                            </div>
+                            <div class="metric_card__right">
+                                <div class="time"><i class="fa fa-clock-o"></i>
+                                <span class="time__green">00:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric_card">
+                            <div class="metric_card__left">
+                                <p>Radiology order request to processing</p>
+                                <h4>Radiology Processing Time</h4>
+                            </div>
+                            <div class="metric_card__right">
+                                <div class="time"><i class="fa fa-clock-o"></i>
+                                <span class="time__green">00:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric_card" >
+                            <div class="metric_card__left">
+                                <p>UCC discharge to IP bed allotment</p>
+                                <h4>IP Transfers</h4>
+                            </div>
+                            <div class="metric_card__right_ip" id="metric__8">
+                                <div id="count_ip">
+                                    <i class="fa fa-user"></i>
+                                    {{key_metrics.ip_transfers.completed.count}}
+                                </div>
+                                <div class="time"><i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm key_metrics.ip_transfers.completed.time as ipt_complete_time%}					
+                                    <span class="{% if key_metrics.ip_transfers.completed.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">
+                                    {{ipt_complete_time}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content__left__btom">
+                        <!-- Visit Banner -->
+                        <div id="left__btom__banner">
+                            <!-- total visit -->
+                            <div class="banner__visit">
+                                <div>
+                                    <h4>Total visits</h4>
+                                </div>
+                                <div id="banner__visit__box">
+                                    <h2>{{ key_metrics.total.count }}</h2>                                        
+                                </div>
+                            </div>
+                            <div class="seperator"></div>
+                            <!-- Visit time -->
+                            <div class="banner__time">
+                                <div>
+                                    <h4>Visit time</h4>
+                                    <p>Registration to discharge</p>
+                                </div>
+                                <div class="banner__time__box">
+                                    {% seconds_to_hm completed.avg_act_tm as avg_visittm %}			
+                                    <h2 class="{% if completed.avg_act_tm > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{avg_visittm}}</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cards -->
+                        <div id="left__btom__cards">
+                            <!-- insurance -->
+                            <div class="left__btom__cards__card">
+                                <div id="insurance">
+                                    <h4><i class="fa fa-umbrella" aria-hidden="true"></i> Insurance</h4>
+                                    <h1>{{completed.Payor.Insurance.count}}</h1>
+                                </div>
+                                <div class="btom__cards__card__pill">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    {% seconds_to_hm completed.Payor.Insurance.time as Insurancetime %}				
+                                    <span class="cards_font {% if completed.Payor.Insurance.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{Insurancetime}}</span>
+                                </div>
+                            </div>
+                            <!-- selfpay -->
+                            <div class="left__btom__cards__card">
+                                <div id="selfpay">
+                                    <h4><i class="fa fa-google-wallet" aria-hidden="true"></i> Self Pay</h4>
+                                    <h1>{{completed.Payor.Self_Pay.count}}</h1>
+                                </div>
+                                <div class="btom__cards__card__pill">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    {% seconds_to_hm completed.Payor.Self_Pay.time as Self_Pay_time %}							
+                                    <span class="cards_font {% if completed.Payor.Self_Pay.time  > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{Self_Pay_time}}</span>
+                                </div>
+                            </div>
+                            <!-- international -->
+                            <div class="left__btom__cards__card">
+                                <div id="International">
+                                    <h4><i class="fa fa-globe" aria-hidden="true" style="color: #343571"></i> International</h4>
+                                    <h1>{{completed.Residency.International.count}}</h1>
+                                </div>
+                                <div class="btom__cards__card__pill">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    {% seconds_to_hm completed.Residency.International.time as Internationaltime %}				
+                                    <span class="cards_font {% if completed.Residency.International.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{Internationaltime}}</span>
+                                </div>
+                            </div>
+                            <!-- local -->
+                            <div class="left__btom__cards__card">
+                                <div id="local">
+                                    <h4><i class="fa fa-map-marker" aria-hidden="true"></i> Local</h4>
+                                    <h1>{{completed.Residency.Local.count}}</h1>
+                                </div>
+                                <div class="btom__cards__card__pill">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    {% seconds_to_hm completed.Residency.Local.time as Localtime %}				
+                                    <span class="cards_font {% if completed.Residency.Local.time  > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{Localtime}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Right -->
+            <div class="content__right">
+                <!-- right top -->
+                <div class="right_top">
+                    <!-- Zone St -->
+                    <div class="right_top_widget_zone">
+                        <!-- Zone statistics -->
+                        <div class="zone_types__zone">
+                            <div class="zone_types__type__zone">
+                                <p>Zone Statistics</p>
+                            </div>
+                            <div class="zone_types__type__zone">
+                                <i class="fa fa-user"></i>
+                                <p>Total Visits</p>
+                            </div>
+                            <div class="zone_types__type__zone">
+                                <i class="fa fa-sitemap"></i>
+                                <p>Active</p>
+                            </div>
+                            <div class="zone_types__type__zone">
+                                <i class="fa fa-suitcase"></i>
+                                <p>Discharged</p>
+                            </div>
+                            <div class="zone_types__type__zone">
+                                <i class="fa fa-clock-o"></i>
+                                <p>Average Triage Time</p>
+                            </div>
+                            <div class="zone_types__type__zone">
+                                <i class="fa fa-clock-o"></i>
+                                <p>Average Hold Time</p>
+                            </div>
+                            <div class="zone_types__type__zone">
+                                <i class="fa fa-clock-o"></i>
+                                <p>Average Visit Time</p>
+                            </div>      
+                        </div>
+                    </div>
+                    <!-- Zones -->
+                    <div class="right_top_widget_zone" id="zone_types__box">
+                        <!-- Green Zone -->
+                        <div class="zone_types__type" style="padding-left: 0;">
+                            <div class="zone_types__type__green">
+                                <p>Green zone</p>
+                            </div>
+                            <div class="zone_types__type__green">
+                                <p>{{zonestats.green.total_visits_count}}</p>
+                            </div>
+                            <div class="zone_types__type__green">
+                                <p>{{zonestats.green.active_count}}</p>
+                            </div>
+                            <div class="zone_types__type__green">
+                                <p>{{zonestats.green.discharge_count}}</p>
+                            </div>
+                            <div class="zone_types__type__green">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.green.avg_triage_tm as greenavg_triage %}
+                                    <span class="time {% if zonestats.green.avg_triage_tm  > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{greenavg_triage}}</span>
+                                </a>
+                            </div>
+                            <div class="zone_types__type__green">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.green.avg_zone_tm as greenavg_zone %}				
+                                    <span class="time {% if zonestats.green.avg_zone_tm  > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{greenavg_zone}}</span>
+                                </a>
+                            </div>
+                            <div class="zone_types__type__green">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.green.avg_visit_tm as greenavg_visit %}				
+                                    <span class="time {% if zonestats.green.avg_visit_tm > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{greenavg_visit}}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Yellow Zone -->
+                        <div class="zone_types__type">
+                            <div class="zone_types__type__yellow">
+                                <p>Yellow zone</p>
+                            </div>
+                            <div class="zone_types__type__yellow">
+                                <p>{{zonestats.yellow.total_visits_count}}</p>
+                            </div>
+                            <div class="zone_types__type__yellow">
+                                <p>{{zonestats.yellow.active_count}}</p>
+                            </div>
+                            <div class="zone_types__type__yellow">
+                                <p>{{zonestats.yellow.discharge_count}}</p>
+                            </div>
+                            <div class="zone_types__type__yellow">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.yellow.avg_triage_tm as yellowavg_triage %}
+                                    <span class="time {% if zonestats.yellow.avg_triage_tm  > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{yellowavg_triage}}</span>
+                                </a>
+                            </div>
+                            <div class="zone_types__type__yellow">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.yellow.avg_zone_tm as yellowavg_zone %}				
+                                    <span class="time {% if zonestats.yellow.avg_zone_tm  > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{yellowavg_zone}}</span>
+                                </a>
+                            </div>
+                            <div class="zone_types__type__yellow">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.yellow.avg_visit_tm as yellowavg_visit %}				
+                                    <span class="time {% if zonestats.yellow.avg_visit_tm > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{yellowavg_visit}}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="zone_types__type">
+                            <div class="zone_types__type__red">
+                                <p>Red zone</p>
+                            </div>
+                            <div class="zone_types__type__red">
+                                <p>{{zonestats.red.total_visits_count}}</p>
+                            </div>
+                            <div class="zone_types__type__red">
+                                <p>{{zonestats.red.active_count}}</p>
+                            </div>
+                            <div class="zone_types__type__red">
+                                <p>{{zonestats.red.discharge_count}}</p>
+                            </div>
+                            <div class="zone_types__type__red">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.red.avg_triage_tm as redavg_triage %}
+                                    <span class="time {% if zonestats.red.avg_triage_tm  > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{redavg_triage}}</span>
+                                </a>
+                            </div>
+                            <div class="zone_types__type__red">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.red.avg_zone_tm as redavg_zone %}				
+                                    <span class="time {% if zonestats.red.avg_zone_tm  > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{redavg_zone}}</span>
+                                </a>
+                            </div>
+                            <div class="zone_types__type__red">
+                                <a class="pill">
+                                    <i class="fa fa-clock-o"></i>
+                                    {% seconds_to_hm zonestats.red.avg_visit_tm as redavg_visit %}				
+                                    <span class="time {% if zonestats.red.avg_visit_tm > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{redavg_visit}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_top_widget">
+                        <h3 class="heading">Triage by <span>Interval</span></h3>
+                        <div id="triage_by_interval_chart"></div>
+                    </div>
+                </div>
+                <!-- right middle -->
+                <div class="right_mid">
+                    <div class="right_top_widget">
+                        <h3 class="heading">Triage by <span>Zone</span></h3>
+                        <div id="triage_by_zone_chart"></div>
+                    </div>
+                    <div class="right_top_widget">
+                        <h3 class="heading">Patients by <span>Interval</span></h3>
+                        <div id="patients_interval_chart"></div>
+                    </div>
+                    <div class="right_top_widget">
+                        <h3 class="heading">Patients by <span>Doctor</span></h3>
+                        <div id="patients_by_doctor_chart"></div>
+                    </div>
+                </div>
+                <!-- right bottom -->
+                <div class="right_btom">
+                    <!-- waiting status -->
+                    <div class="right_btom_widget" id="rb__left">
+                        <h3>Current<h3>
+                        <h1>Waiting Status</h1>
+                        <div style="padding-top: 20%">
+                            <img  height="" width="100%" src="{% static 'img/icons8-waiting-room-48.png' %}" alt="">
+                        </div>
+                    </div>
+                    <!-- Triage Consulation -->
+                    <div class="right_btom_widget" id="rb__mid">
+                        <div id="rb__mid__triage">
+                            <div id="rb__mid__triage__head">
+                                <span>For</span>
+                                <h2>Triage</h2>
+                            </div>
+                            <div class="rb__mid__content">
+                                <div class="rb__mid__content__count">
+                                    <i class="fa fa-2x fa-user"></i>
+                                    <p>{{inprogress.pdTriage.count}}</p>
+                                </div>
+                                <div class="ct__seperator"></div>
+                                <div class="rb__mid__content__time">
+                                    <i class="fa fa-2x fa-clock-o"> </i>
+                                    {% seconds_to_hm inprogress.pdTriage.time as avg_elapsed_triage %}				
+                                    <p class="{% if inprogress.pdTriage.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{avg_elapsed_triage}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="rb__mid__consult">
+                            <div id="rb__mid__consult__head">
+                                <span>For</span>
+                                <h2>Consultation</h2>
+                            </div>
+                            <div class="rb__mid__content">
+                                <div class="rb__mid__content__count">
+                                    <i class="fa fa-2x fa-user"></i>
+                                    <p>{{inprogress.pdConsultation.count}}</p>
+                                </div>
+                                <div class="ct__seperator"></div>
+                                <div class="rb__mid__content__time" id="time__green">
+                                    <i class="fa fa-2x fa-clock-o"> </i>
+                                    {% seconds_to_hm inprogress.pdConsultation.time as avg_elapsed_cons %}				
+                                    <p class="{% if inprogress.pdConsultation.time > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}">{{avg_elapsed_cons}}</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Doctor stats -->
+                    <div class="right_btom_widget" id="rb__right">
+                        <div class="header-container">
+                            <h1><i class="fa fa-user" style="color: white;"></i> Doctor Statistics</h1>
+                        </div>
+                        <table id="docstats-table" style="width:100%; color: #555555;
+                        ">
+                            <thead>
+                                <tr>
+                                    <th class="docstats__header">Doctor</th>
+                                    <th class="docstats__header">Patients</th>
+                                    <th class="docstats__header">Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for doctor in docstats%}
+                                    <tr >
+                                        <td class="docstats__font_size">{{doctor.doc_name}}</td>
+                                        <td class=docstats__font_size>
+                                            <div id="docstats__count">
+                                                {{doctor.count}}
+                                            </div>
+                                        </td>
+                                        {% seconds_to_hm doctor.avg_visit_tm as avg_visit_tm %}		
+                                        <td id="docstats__avg_time" class="{%if doctor.avg_visist_tm > graphs.AccidentEmergency.KPI  %}time__red{%else%}time__green{%endif%}"><i style="font-size: 18px;" class="fa fa-clock-o"></i> {{avg_visit_tm}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+
+        setTimeout(function() {
+            location.reload();
+          }, 120000); // 120000 milliseconds = 2 minutes
+          
+        const jData = JSON.parse('{{ jsonData|escapejs }}');
+        const MODULE = "AccidentEmergency"
+
+        const patientsByIntervalData = jData.graphs[MODULE].interval["barline-1"]
+        const triageByIntervalData = jData.graphs[MODULE].triage["comparison-1"]
+        const triageByZoneData = jData.graphs[MODULE].Zone["barpie-1"]
+        const patientsByDoctorData = jData.graphs[MODULE].Doctor["barline-1"]
+        const doctorStats = jData.docstats
+        const kpi =jData.graphs.AccidentEmergency.KPI
+
+        function secondsToHHMM(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+
+        function formattedLabel(labels) {
+            let formattedLabels = [];
+            for(let index =0; index<labels.length; index++){
+                let [starttime, endtime] = labels[index].split(' - ');
+                if(starttime[0] == '0'){
+                    starttime = starttime.substring(1, starttime.length)
+                }
+                if(endtime[0] == '0'){
+                    endtime = endtime.substring(1, endtime.length)
+                }
+                formattedLabels[index] = `${starttime.toLowerCase()}-${endtime.toLowerCase()}`;
+            } 
+            return formattedLabels;
+        }
+
+        function formattedLabel2(labels) {
+            let formattedLabels = [];
+            for(let index=0; index<labels.length; index++ ){
+                formattedLabels[index] = `DR.${labels[index].substring(0,2).toUpperCase()}...`;
+            }
+            return formattedLabels;
+        }
+
+        function CreatePatientIntervalChart() {
+
+            var labels = formattedLabel(patientsByIntervalData.x);
+            const columnData = patientsByIntervalData.y.find(obj => obj.type === 'column').data;
+            const lineData = patientsByIntervalData.y.find(obj => obj.type === 'line').data;
+            const formattedLineData = lineData.map(seconds => secondsToHHMM(seconds));
+
+            const options = {
+                colors: ["#EBEBFF", "rgba(103, 103, 149, 0.9)"],
+                series: [{
+                    name: 'Patients',
+                    type: 'column',
+                    data: columnData
+                }, {
+                    name: 'Average Time',
+                    type: 'line',
+                    data: lineData
+                }],
+                chart: {
+                    height: "88%",
+                    type: 'line',
+                    stacked: false,
+                },
+                stroke: {
+                    width: [0, 2],
+                    curve: 'smooth'
+                },
+                dataLabels: {
+                    enabled: true,
+                    enabledOnSeries: [1],
+                    formatter: function(value){
+                        return secondsToHHMM(value);
+                    },
+                    background: {
+                        enabled: true,
+                        forecolor: '#dddddd',
+                        borderRadius:1,
+                    }
+                },
+                xaxis: {
+                    type: 'category',
+                    categories: labels,
+                },
+                yaxis: [
+                    {
+                        min: 0,
+                        max: 45,
+                        seriesName: 'Total Visits',
+                        opposite: false,
+                        labels: {
+                            show: false
+                        }
+                    },
+                    {
+                        min: 0,
+                        max: 10800,
+                        seriesName: 'Average Time',
+                        opposite: true,
+                        labels: {
+                            formatter: function (value) {
+                                return secondsToHHMM(value);
+                            },
+                            show: false
+                        }
+                    }
+                ],
+                grid: {
+                    show: false,  // Disable the horizontal lines in the background
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: '50%',
+                        borderRadius: 10,
+                        borderRadiusApplication: 'end',
+                    }
+                },
+                annotations: {
+                    yaxis: [
+                    {
+                        yAxisIndex: 1,
+                        y: kpi,
+                        borderColor: '#72C090',
+                        label: {
+                            borderColor: '#F1FDEF',
+                            style: {
+                                color: '#72C090',
+                                background :'#F1FDEF',
+                            },
+                            text: 'KPI: 01:00',
+                        },
+                        style: {
+                            strokeDashArray: 4 // Use strokeDashArray to make the line dotted
+                        }
+                    }
+                    ]
+                },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                      shadeIntensity: 1,
+                      type: 'vertical',
+                      opacityFrom: 0.7,
+                      opacityTo: 0.9,
+                      stops: [0, 90, 100],
+                      colorStops: [{
+                        offset: 0,
+                        color: 'rgba(103, 103, 149, 0.9)', // Start color
+                        opacity: 1
+                      }, {
+                        offset: 100,
+                        color: '#EBEBFF', // End color
+                        opacity: 1
+                      }]
+                    }
+                  }
+            };
+
+            const chart = new ApexCharts(document.querySelector("#patients_interval_chart"), options);
+            return chart
+        }
+
+        function CreateTriageZoneChart() {
+            const labels = triageByZoneData.bar.x;
+            const columnData = triageByZoneData.bar.y[0].data;
+            const lineData = triageByZoneData.bar.y[1].data;
+
+            const formattedLineData = lineData.map(seconds => secondsToHHMM(seconds));
+
+            const options = {
+                colors: ['#C6F0C280',"rgba(114, 192, 144, 0.81)"],
+                series: [
+                    {
+                        name: 'Total Visits',
+                        type: 'column',
+                        data: columnData
+                    },
+                    {
+                        name: 'Average Time',
+                        type: 'line',
+                        data: lineData
+                    }
+                ],
+                chart: {
+                    height: '88%',
+                    type: 'line',
+                    stacked: false
+                },
+                stroke: {
+                    width: [0, 2],
+                    curve: 'smooth'
+                },
+                dataLabels: {
+                    enabled: true,
+                    enabledOnSeries: [1],
+                    formatter: function(value){
+                        return secondsToHHMM(value);
+                    },
+                    style:{
+                        color: ['#333333']
+                    },
+                    background:{
+                        background: '#CEE9D8',
+                        borderColor: '#CEE9D8',
+                        borderRadius: 0.5,
+                        borderWidth: 0.5,
+                    }
+                },
+                xaxis: {
+                    type: 'category',
+                    categories: labels,
+                },
+                yaxis: [
+                    {
+                        min: 0,
+                        max: 72,
+                        seriesName: 'Total Visits',
+                        opposite: false,
+                        labels: {
+                            show: false
+                        }
+                    },
+                    {
+                        min: 0,
+                        max: 10800,
+                        seriesName: 'Average Time',
+                        opposite: true,
+                        labels: {
+                            formatter: function (value) {
+                                console.log("in seconds", value)
+                                const fmt = secondsToHHMM(value);
+                                console.log("fmt", fmt)
+                                return fmt
+                            },
+                            show: false
+                        }
+                    }
+                ],
+                grid: {
+                    show: false,  // Disable the horizontal lines in the background
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: '15%',
+                        borderRadius: 12,
+                        borderRadiusApplication: 'end',
+                    }
+                },
+                annotations: {
+                    yaxis: [
+                    {
+                        yAxisIndex: 1,
+                        y: kpi,
+                        borderColor: '#72C090',
+                        label: {
+                            borderColor: '#F1FDEF',
+                            style: {
+                                color: '#72C090',
+                                background :'#F1FDEF',
+                            },
+                            text: 'KPI: 01:00',
+                        },
+                        style: {
+                            strokeDashArray: 4 // Use strokeDashArray to make the line dotted
+                        }
+                    }
+                    ]
+                },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shade: 'light',
+                        type: 'vertical',
+                      shadeIntensity: 1,
+                      opacityFrom: 0.7,
+                      opacityTo: 0.9,
+                      stops: [0, 100],
+                      colorStops: [{
+                        offset: 0,
+                        color: 'rgba(114, 192, 144, 0.81)',  // Start color
+                        opacity: 1
+                      }, {
+                        offset: 100,
+                        color: '#C6F0C2',  // End color
+                        opacity: 1
+                      }]
+                    }
+                  }
+            }
+            const chart = new ApexCharts(document.querySelector("#triage_by_zone_chart"), options);
+            chart.render();
+
+        }
+
+        function CreatePatientsByDoctorChart() {
+            const labels = formattedLabel2(patientsByDoctorData.x);
+            const columnData = patientsByDoctorData.y[0].data;
+            const lineData = patientsByDoctorData.y[1].data;
+
+            const formattedLineData = lineData.map(seconds => secondsToHHMM(seconds));
+
+            const options = {
+                colors: ['#F3ECF0','rgba(162, 105, 133, 1)'],
+                series: [
+                    {
+                        name: 'Total Visits',
+                        type: 'column',
+                        data: columnData
+                    },
+                    {
+                        name: 'Average Time',
+                        type: 'line',
+                        data: lineData
+                    }],
+                chart: {
+                    height: "88%",
+                    type: 'line',
+                    stacked: false
+                },
+                stroke: {
+                    width: [0, 2],
+                    curve: 'smooth'
+                },
+                dataLabels: {
+                    enabled: true,
+                    enabledOnSeries: [1],
+                    formatter: function(value){
+                        return secondsToHHMM(value);
+                    },
+                },
+                xaxis: {
+                    type: 'category',
+                    categories:labels
+                    
+                },
+                yaxis: [
+                    {
+                        min: 0,
+                        max: 25,
+                        seriesName: 'Total Visits',
+                        opposite: false,
+                        labels: {
+                            show: false
+                        }
+                    },
+                    {
+                        min: 0,
+                        max:10800,
+                        seriesName: 'Average Time',
+                        opposite: true,
+                        labels: {
+                            formatter: function (value) {
+                                return secondsToHHMM(value);
+                            },
+                            show: false
+                        }
+                    }
+                ],
+                grid: {
+                    show: false,  // Disable the horizontal lines in the background
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: '50%',
+                        borderRadius: 10,
+                        borderRadiusApplication: 'end'
+                    }
+                },
+                annotations: {
+                    yaxis: [
+                    {
+                        yAxisIndex: 1,
+                        y: kpi,
+                        borderColor: '#72C090',
+                        label: {
+                            borderColor: '#F1FDEF',
+                            style: {
+                                color: '#72C090',
+                                background :'#F1FDEF',
+                            },
+                            text: 'KPI: 01:00',
+                        },
+                        style: {
+                            strokeDashArray: 4 // Use strokeDashArray to make the line dotted
+                        }
+                    }
+                    ]
+                },
+                
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                      shade: 'light',
+                      type: 'vertical',
+                      shadeIntensity: 1,
+                      gradientToColors: ['#F9F5F7'],
+                      inverseColors: false,
+                      opacityFrom: 1,
+                      opacityTo: 1,
+                      stops: [0, 100],
+                      colorStops: [{
+                        offset: 0,
+                        color: '#A26985',
+                        opacity: 1
+                      }, {
+                        offset: 100,
+                        color: '#F9F5F7',
+                        opacity: 1
+                      }]
+                    }
+                  }
+            }
+            const chart = new ApexCharts(document.querySelector("#patients_by_doctor_chart"), options);
+            chart.render();
+        }
+
+        function CreateTriageByIntervalChart() {
+            const labels = formattedLabel(triageByIntervalData.x);
+            
+            const columnDataTriageDone = triageByIntervalData.y[0].data;
+            const lineDataTriageDone = triageByIntervalData.y[1].data;
+            const columnDataTriageNotDone = triageByIntervalData.y[2].data;
+            const lineDataTriageNotDone = triageByIntervalData.y[3].data;
+
+            const options = {
+                series: [
+                    {
+                        name: 'Triage Done',
+                        type: 'column',
+                        data: columnDataTriageDone
+                    },
+                    {
+                        name: 'Triage Done (Avg Time)',
+                        type: 'line',
+                        data: lineDataTriageDone
+                    },
+                    {
+                        name: 'Triage Not Done',
+                        type: 'column',
+                        data: columnDataTriageNotDone
+                    },
+                    {
+                        name: 'Triage Not Done (Avg Time)',
+                        type: 'line',
+                        data: lineDataTriageNotDone
+                    }
+                ],
+                chart: {
+                    height: "90%",
+
+                    type: 'line',
+                    stacked: false
+                },
+                dataLabels: {
+                    enabled: true,
+                    enabledOnSeries: [1],
+                    formatter: function(value){
+                        return secondsToHHMM(value);
+                    },
+                },
+                xaxis: {
+                    type: 'category',
+                    categories: labels,
+                },
+                yaxis: [
+                    {
+                        seriesName: 'Triage Done',
+                        min: 0,
+                        max: 15,
+                        opposite: false,
+                        labels: {
+                            formatter: function (value) {
+                                return value;
+                            },
+                            show: false
+                        }
+                    },
+                    {
+                        seriesName: 'Triage Done (Avg Time)',
+                        min: 0,
+                        max: 3700,
+                        opposite: true,
+                        labels: {
+                            formatter: function (value) {
+                                return value;
+                            },
+                            show: false
+                        }
+                    },
+                    {
+                        seriesName: 'Triage Not Done',
+                        min: 0,
+                        max: 15,
+                        opposite: false,
+                        labels: {
+                            formatter: function (value) {
+                                return value;
+                            },
+                            show: false
+                        }
+
+                    },
+                    {
+                        seriesName: 'Triage Not Done (Avg Time)',
+                        min: 0,
+                        opposite: true,
+                        labels: {
+                            formatter: function (value) {
+                                return value;
+                            },
+                            show: false
+                        }
+                    }
+                ],
+                grid: {
+                    show: false,  // Disable the horizontal lines in the background
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: '50%',
+                        borderRadius: 6,
+                        borderRadiusApplication: 'end'
+                    }
+                },
+                annotations: {
+                    yaxis: [
+                    {
+                        yAxisIndex: 1,
+                        y: kpi,
+                        borderColor: '#72C090',
+                        label: {
+                            borderColor: '#F1FDEF',
+                            style: {
+                                color: '#72C090',
+                                background :'#F1FDEF',
+                            },
+                            text: 'KPI: 01:00',
+                        },
+                        style: {
+                            strokeDashArray: 4 // Use strokeDashArray to make the line dotted
+                        }
+                    }
+                    ]
+                },
+                stroke: {
+                    width: [2, 2, 0], // Customize the line and column stroke widths
+                    curve: 'smooth' // Apply smooth interpolation to the line component
+                },
+                
+                colors: ["rgba(114, 192, 144, 0.81)", "rgba(114, 192, 144, 0.81)", "rgba(153, 153, 153, 0.7)", "rgba(221, 221, 221, 1)"]
+            }
+            const chart = new ApexCharts(document.querySelector("#triage_by_interval_chart"), options);
+            chart.render();
+        }
+
+        CreatePatientIntervalChart().render()
+        CreateTriageZoneChart()
+        CreatePatientsByDoctorChart()
+        CreateTriageByIntervalChart()
+
+
+        var table = $('#docstats-table').DataTable({
+            pageLength: 4,
+            paging: true,
+            lengthChange: false,
+            searching: true,
+            ordering: true,
+            info: true,
+            autoWidth: true,
+            deferRender: true,
+            stateSave: true,
+            scrollX: false,
+            scrollY: false,
+            scrollCollapse: false,
+            processing: false,
+            serverSide: false,
+        });
+
+    </script>
+</body>
+
+</html>
