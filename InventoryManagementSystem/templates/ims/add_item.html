@@ -1,0 +1,35 @@
+{% extends 'partials/base.html' %} 
+{%block title%}Add item{%endblock%}
+{% block content %}
+<div class="root_box">
+  <div class="card bg-white p-5 mc">
+    <h3 class="text-center">Add Item</h3>
+
+    {% for message in messages%} {% if message %}
+    <div class="alert alert-{{message.tags}}">{{message}}</div>
+    {% endif %} {% endfor %}
+    
+    <div class="card-body bg-light cbody">
+      <form class="form-group" method="POST">
+        {% csrf_token %}
+          <label>Name </label>
+          {{ form.name }}
+          <label>IIN </label>
+          {{ form.iin }}
+          {{ form.iin.errors }}
+          <label>Cost </label>
+          {{ form.cost }}
+          <label>Quantity</label>
+          {{ form.quantity}}
+          <label>Selling Price</label>
+          {{ form.selling_price}}
+        <br>
+        <div class="d-flex flex-column" id="edit_action">
+          <input class="btn btn-success btn-block mx-3 my-2" type="submit" value="Add Item" name="action">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

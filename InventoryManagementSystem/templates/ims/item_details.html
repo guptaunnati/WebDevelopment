@@ -1,0 +1,69 @@
+{% extends 'partials/base.html' %} 
+{% block title %}Item List{% endblock %} 
+{% block content %}
+<!-- Item Detail -->
+<div class="root_box">
+  <div class="card bg-white  text-center" id=info_card>
+    <h1 class="card-title"><b>{{item.name}}</b></h1>
+    <div class="card-body bg-light text-justify" id ="info_body">
+    <div>
+      <p class="padding">
+        <h4>
+        <b> INN:  </b>{{item.iin}}
+        <br />
+        <b> Cost: </b>${{item.cost}}
+        <br />
+        <b> Selling Price: </b>${{item.selling_price}}
+        <br />
+        <b> Quantity: </b>{{item.quantity}}
+        <br />
+        <b> Quantity Sold: </b>{{item.quantity_sold}}
+        </h4>
+        </p>
+      <a
+        class="btn btn-danger btn-bg ml-2"
+        href="{% url 'ims-edit-item' item.id %}"
+        >Edit</a
+      >
+    </div>
+    </div>
+
+    <!-- message -->
+    <div class="padding">
+      {% for message in messages%} {% if message %}
+      <div class="alert alert-{{message.tags}}">{{message}}</div>
+      {% endif %} {% endfor %}  
+    </div>
+
+     <!-- Transaction  -->
+     <div class="card-body">
+      <h4 class="card-title">Transaction</h4>
+      <a
+        class="btn btn-primary btn-bg ml-2"
+        href="{% url 'ims-sold-item' item.id %}"
+        >Item Sold</a
+      >
+    </div>
+
+    <!-- Order  -->
+    <div class="card-body">
+      <h4 class="card-title">Order</h4>
+      <a
+        class="btn btn-info btn-bg ml-2"
+        href="{% url 'ims-order-placed' item.id %}"
+        >Placed</a
+      >
+      <a
+        class="btn btn-success btn-bg ml-2"
+        href="{% url 'ims-order-received' item.id%}"
+        >Received</a
+      >
+      <a
+        class="btn btn-danger btn-bg ml-2"
+        href="{% url 'ims-order-cancelled' item.id%}"
+        >Cancelled</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock %}

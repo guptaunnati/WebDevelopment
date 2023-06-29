@@ -1,0 +1,12 @@
+{% extends 'partials/base.html' %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="hero text-center">
+    <h1><b>INVENTORY</b></h1>
+    <h3> Your end-to-end  online <br><b>Inventory Management System</b></h3>
+    <div>
+    <a class="btn btn-grad btn-lg" href="{% url 'ims-dash' %}">Go to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

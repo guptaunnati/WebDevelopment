@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href=" {% static 'ims/dash.css' %}"
+    />
+</head>
+
+<body>
+    <div class="app">
+        <header class="app-header">
+            <div class="app-header-logo">
+                <div class="logo">
+                    <h1 class="logo-title">
+                        <a href="{% url 'ims-home' %}"><span>IMS</span></a>
+                    </h1>
+                </div>
+            </div>
+           
+            <div class="app-header-mobile">
+                <!-- <button class="icon-button large">
+                    <i class="ph-list"></i>
+                </button> -->
+            </div>
+        </header>
+
+        <!-- Home (Show some stats like total store profit, total items in stock, item with highest cost, item with highest profits, item most sold, items out of stock, item with highest profit earned, etc.) -->
+
+        <div class="app-body">
+            <div class="app-body-navigation">
+
+            </div>
+            <div class="app-body-main-content">
+                <section class="service-section">
+                    <h2>Statistics</h2>
+                    <div class="tiles">
+
+                        <article class="tile">
+                            <div class="tile-header">
+                                <i class="ph-lightning-light"></i>
+                                <h3>
+                                    <span>{{itemWithHighestCost}}</span>
+                                    <span>Item with highest cost</span>
+                                </h3>
+                            </div>
+                            <a href="{%url 'ims-view-item' itemWithHighestCost.id %}">
+                            </a>
+                        </article>
+                        <article class="tile">
+                            <div class="tile-header">
+                                <i class="ph-fire-simple-light"></i>
+                                <h3>
+                                    <span>${{totalStoreProfitEarned}}</span>
+                                    <span>Total Profit earned</span>
+                                </h3>
+                            </div>
+                            <a href="{% url 'transaction' %}">
+                            </a>
+                        </article>
+                        <article class="tile">
+                            <div class="tile-header">
+                                <i class="ph-file-light"></i>
+                                <h3>
+                                    <span>{{totalItemsInStock}}</span>
+                                    <span>Items in Stock</span>
+                                </h3>
+                            </div>
+                            <a href="{% url 'ims-item' %}"></a>
+                        </article>
+                        <article class="tile">
+                            <div class="tile-header">
+                                <i class="ph-lightning-light"></i>
+                                <h3>
+                                    <span>{{itemWithHighestProfit}}</span>
+                                    <span>Item With Highest Profit</span>
+                                </h3>
+                            </div>
+                            <a href="{%url 'ims-view-item' itemWithHighestProfit.id %}"></a>
+                        </article>
+                        <article class="tile">
+                            <div class="tile-header">
+                                <i class="ph-fire-simple-light"></i>
+                                <h3>
+                                    <span>{{itemMostSold}}</span>
+                                    <span>Item Most Sold</span>
+                                </h3>
+                            </div>
+                            <a href="{%url 'ims-view-item' itemMostSold.id %}"></a>
+                        </article>
+                        <article class="tile">
+                            <div class="tile-header">
+                                <i class="ph-file-light"></i>
+                                <h3>
+                                    <span>{{itemWithHighestProfitEarned}}</span>
+                                    <span>Item With Highest Profit Earned</span>
+                                </h3>
+                            </div>
+                            <a href="{%url 'ims-view-item' itemWithHighestProfit.id %}"></a>
+                        </article>
+                    </div>
+                    
+                    <div class="service-section-footer">
+                        <p>Please refresh to update.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="app-body-sidebar">
+                <section class="payment-section">
+                    <h2>Items Out Of Stock</h2>
+                    <div class="payments">
+                        <div class="payment">
+                            <div class="payment-details">
+                                {% for item in itemOutOfStock %}
+                                <div>
+                                    <span>{{item}}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>                        
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

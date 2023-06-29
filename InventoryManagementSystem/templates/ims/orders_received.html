@@ -1,0 +1,36 @@
+{% extends 'partials/base.html' %}
+{% block title %}Order Received{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center py-3">
+    <h1>Order Received</h1>
+</div>
+<div class="table_wrap">
+    <table class="table table-hover table-striped compact-table">
+        <colgroup>
+            <col class="compact_col"  >
+            <col class="compact_col"  >
+            <col class="compact_col"  >
+            <col class="compact_col"  >
+        </colgroup>
+        <thead class="bg-info text-white">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Date and Time (Placed)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orderReceived %}
+            <tr>
+                <td>{{order.name}}</td>
+                <td>${{order.cost}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.orderdttm}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

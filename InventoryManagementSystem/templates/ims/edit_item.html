@@ -1,0 +1,54 @@
+{% extends 'partials/base.html' %} {% block content %}
+<div class="root_box">
+  <div class="card bg-white p-5 mc">
+    <h3 class="text-center">Edit Item</h3>
+    <div class="card-body bg-light cbody">
+      <form class="form-group" method="POST">
+        {% csrf_token %}
+          <label>Name </label>
+          {{ form.name }}
+          <label>Cost </label>
+          {{ form.cost }}
+          <label>Quantity</label>
+          {{ form.quantity}}
+          <label>Selling Price</label>
+          {{ form.selling_price}}
+        <div class="d-flex flex-column" id="edit_action" >
+          <input class="btn btn-success btn-block mx-3 my-2" type="submit" value="Edit" name="action">
+          <input class="btn btn-danger btn-block mx-3" type="submit" value="Cancel" name="action">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% comment %} {% extends 'partials/base.html' %}
+{% block title %}Edit Item{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center root_box ">
+  <div class="card bg-white p-5 text-center" style="width: 100vh;">
+    <h3 class="text-center ">Edit Item</h3>
+    <!-- {% for message in messages%}
+        {% if message %}
+        <div class="alert alert-{{message.tags}}">
+            {{message}}
+        </div>
+        {% endif %}
+    {% endfor %} -->
+    <div class="card-body bg-light ">
+      <form class="form-group" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-flex flex-column">
+          <input class="btn btn-success btn-block mx-3 my-2" type="submit" value="Edit" name="action">
+          <input class="btn btn-danger btn-block mx-3" type="submit" value="Cancel" name="action">
+        </div>
+      </form>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+{% comment %} {% endblock %} {% endcomment %}
