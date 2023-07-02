@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: black;
+  padding: 0.3% 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+}
+
+.nav-btn{
+    color: black;
+}
+
+.nav-btn:hover{
+    color: gray;
+}
+
+.hero {
+  width: 100vw;
+  background-image: url(https://cdn.discordapp.com/attachments/706405123437494274/777420115615416339/camping-2581242_1920.jpg);
+  height: 87vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+}
+.search {
+  margin-top: 0.7%;
+}
+.hero-txt {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 9.9vw;
+  letter-spacing: 0.585em;
+  margin-left: 75px;
+  color: #ffffff;
+}
+.hero-bottom {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 500;
+  position: absolute;
+  bottom: 7%;
+  letter-spacing: 0.012em;
+}
+
+.see-more{
+    color: gray;
+    text-decoration: none;
+}
+
+.see-more:hover{
+    color: gray;
+}
+.input-group {
+  border-radius: 12px;
+}
+.inpt {
+  border: 1.5px solid #142d4f;
+}
+.btn {
+  border: none;
+  margin-left: 8px;
+}
+.sbtn {
+  border-radius: 12px;
+  color: white;
+  background-color: #142d4f;
+}
+.deck {
+  margin: 3.5%;
+  position: relative;
+}
+.continent {
+  transform: rotate(-90deg);
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  font-family: "Nunito";
+  opacity: 40%;
+  letter-spacing: 7px;
+}
+.card-text {
+  font-family: "Open Sans", sans-serif;
+  font-size: smaller;
+}
+.card-title {
+  font-family: "Raleway";
+  font-weight: 600;
+}
+.nav {
+  color: #041117;
+}
+.cbtn {
+  border: 1.5px solid #142d4f;
+  color: #041117;
+}
+
+footer {
+  bottom: 0px;
+  width: 100%;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+#hover:hover {
+  cursor: pointer;
+  color: gray;
+}
+
+.main-content {
+  display: flex;
+  text-align: center;
+  font-family: Arial;
+  color: white;
+  background-color: black;
+  padding-top: 10px;
+}
+
+.main-content .left-box {
+  flex-basis: 20%;
+}
+
+.main-content .center-box {
+  flex-basis: 10%;
+  padding: 10px 20px;
+}
+
+.main-content .right-box {
+  flex-basis: 20%;
+  padding: 10px 20px;
+}
+
+.main-content .right2-box {
+  flex-basis: 10%;
+  padding: 10px 20px;
+}
+
+.center-box,
+right2-box {
+  margin-right: 20px;
+  width: 30%;
+}
+
+.right2-box {
+  width: 40%;
+}
+
+.place {
+  width: 250px;
+}
+
+.social {
+  width: 200px;
+}
+
+.followus {
+  width: 200px;
+}
+
+#footer-bottom {
+  color: white;
+  background-color: black;
+  font-style: Arial;
+  text-align: center;
+}

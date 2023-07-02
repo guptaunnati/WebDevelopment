@@ -1,0 +1,168 @@
+/* Reset Code*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#mainNavbar .navbar-brand {
+    color: #073b4c;
+    font-size: 1.8rem;
+    cursor:default;
+    margin-right: 9rem;
+}
+
+#mainNavbar .nav-link {
+    color: #073b4c;
+}
+
+#mainNavbar .nav-link:hover {
+    color: #118ab2;
+}
+
+#mainNavbar {
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+
+.lg-img {
+    /* width: 100vh; */
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.row {
+    margin: 0;
+    width: 100%;
+}
+.navbar-nav-r > li{
+  padding-left:10px;
+  padding-right:10px;
+}
+.navbar-nav-r > li{
+  margin-left:10px;
+  margin-right:10px;
+}
+
+div .lg-img.b1 {
+    background: no-repeat url("https://cdn.discordapp.com/attachments/706405123437494274/777383599308537896/2.jpeg");
+    background-position: top;
+    background-size: cover;
+}
+
+div .lg-img.b2 {
+    background: no-repeat url("https://cdn.discordapp.com/attachments/706405123437494274/777383621672697856/1.jpeg");
+    background-position: top;
+    background-size: cover;
+}
+
+div .lg-img.b3 {
+    background: no-repeat url("https://cdn.discordapp.com/attachments/706405123437494274/777383621505974302/3.jpeg");
+    background-position: top;
+    background-size: cover;
+}
+
+.lg{
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px 10px 10px;
+}
+
+.lg:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.gif {
+
+    background: no-repeat url("https://cdn.discordapp.com/attachments/706405123437494274/777383619609493524/travel_v5.gif");
+    background-position: center;
+    background-size: cover;
+    height: 15vh;
+    margin: 1.5rem;
+}
+
+.inp {
+    height: 70vh
+}
+
+@media (max-width: 1200px) {
+    .gif {
+        height: 25vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .gif {
+        height: 15vh;
+    }
+}
+
+.login-page {
+    width:100%;
+    font-size: 1.5rem;
+}
+
+form button {
+    font-size: 2rem;
+}
+
+.foot {
+    font-size: 200%;
+    color: darkgrey;
+}
+
+@media (max-width: 767px) {
+
+    nav{
+        background-color: #4954647f;
+    }
+}

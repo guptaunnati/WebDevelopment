@@ -1,0 +1,211 @@
+body {
+  scroll-snap-type: y mandatory;
+  /* overflow-y: scroll; */
+  /* scroll-behavior: smooth; */
+  scroll-snap-points-y: repeat(10px);
+}
+
+.sec0 {
+  background-image: url(https://cdn.discordapp.com/attachments/706405123437494274/777390488780013568/southAfrica-tourismjpg.jpg);
+  height: 85vh;
+  width: 100vw;
+  scroll-snap-align: start;
+}
+.sec1 {
+  background-color: white;
+  height: 70vh;
+  width: 100vw;
+  scroll-snap-align: start;
+}
+.sec2 {
+  background-image: url(https://cdn.discordapp.com/attachments/706405123437494274/777390517787951115/Start_023.png);
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+}
+.sec3 {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+  padding-top: 1%;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+}
+
+.nav-btn{
+    color: white;
+}
+
+.nav-btn:hover{
+    color: gray;
+}
+
+.readMore{
+    color: white;
+}
+
+.readMore:hover{
+    color: gray;
+}
+
+.intro {
+  height: 45%;
+  width: 45%;
+
+  position: absolute;
+  top: 18%;
+  left: 17.5%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 5%;
+  font-family: "Open Sans", sans-serif;
+}
+.intro-author {
+  margin-top: 4%;
+  font-family: "Raleway";
+  opacity: 60%;
+}
+.intro-title {
+  font-weight: 500;
+  font-size: 2rem;
+  padding-top: 2%;
+  margin-bottom: 0%;
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
+}
+/* =============
+---------- */
+.sec1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+}
+.title-info {
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
+}
+.author-info {
+  margin-top: 4%;
+  font-family: "Raleway";
+  opacity: 60%;
+}
+.main-flex {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+}
+.image-info {
+  height: 340px;
+  width: 450px;
+  margin-left: 5%;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.post-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
+}
+.info-btn {
+  width: 75px;
+  height: 45px;
+  background-color: #041117;
+  border: none;
+  text-align: center;
+  box-shadow: none;
+  color: white;
+}
+
+.info-btn:hover{
+    background-color: gray;
+    color: black;
+}
+
+.author-post {
+  margin-top: 4%;
+  font-family: "Raleway";
+  opacity: 60%;
+  font-size: medium;
+}
+.post-body {
+  width: 35%;
+  margin-left: 12%;
+
+  position: absolute;
+  margin-top: 4%;
+  margin-bottom: 15%;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.img-post,
+.post-para {
+  width: 100%;
+}
+.img-post {
+  width: 100%;
+  margin: 3% 0;
+}
+/* ======================sec3 */
+.sec3-item {
+  display: flex;
+  flex-direction: row;
+
+  width: 80%;
+  min-height: 22vh;
+  justify-content: start;
+  margin: 1.7% 0;
+}
+.img-item {
+  height: 100%;
+  width: 75%;
+}
+.text {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+}
+.i1,
+.i3 {
+  flex-direction: row-reverse;
+}
+.sec3-title {
+  font-weight: 500;
+  font-size: 2rem;
+  padding-top: 2%;
+  margin-bottom: 0%;
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
+}
+
+.text-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 4vh;
+}
+.auth {
+  margin: 2% 0;
+}
+
+

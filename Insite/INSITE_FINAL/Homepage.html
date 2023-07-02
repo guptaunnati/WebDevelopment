@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+
+    <title>Welcome to Insite Tourism</title>
+</head>
+
+<body>
+            <div class="nav">
+            <div class="navItems logo"><a class="nav-link" target="_blank" href="./guideFinal.html">Travel Companion</a></div>
+            <div class="navItems"><a class="nav-link" target="_blank" href="./destinationsPage.html">Destinations</a></div>
+            <div class="navItems"><a class="nav-link" target="_blank" href="./blog.html">Blogs</a></div>
+            <div class="navItems"><a class="nav-link" target="_blank" href="./error404.html">About</a></div>
+        </div>
+    <div class="slideshow">
+        <div class="slideshow-item">
+            <img src="https://cdn.discordapp.com/attachments/706405123437494274/775782162746179597/pexels-janez-podnar-1424246.jpg" alt="">
+            <div class="text">
+                <h5>Venezuela</h5>
+                <p>Venezuela benefits from huge natural diversity, boasting jungles, snow-capped mountains, a vast Caribbean coastline, as well as South America's largest lake and the world's highest waterfall.</p>
+                <button formaction="destinationsPage.html" class="btn-more"><a class="explore" href="destinationsPage.html" target="_blank">Explore More</a> </button>
+
+            </div>
+        </div>
+        <div class="slideshow-item">
+            <img src="https://cdn.discordapp.com/attachments/706405123437494274/777270651450556457/pexels-matheus-bertelli-2868242Germany.png" alt="">
+            <div class="text">
+                <h5>Germany</h5>
+                <p>Germany is a diverse country with many attractions! The combination of old world charm and modern urban cities make it an ideal destination for travelers. With a wide array of food, accomodations and drink options, Germany is traditionally less expensive to travel to than its other European counterparts.</p>
+<button formaction="destinationsPage.html" class="btn-more"><a class="explore" href="destinationsPage.html" target="_blank">Explore More</a></button>
+            </div>
+        </div>
+        <div class="slideshow-item">
+            <img src="https://cdn.discordapp.com/attachments/706405123437494274/777258834511003659/pexels-galyna-lunina-3719630US.jpg" alt="">
+            <div class="text">
+                <h5>USA</h5>
+                <p>If you’ve never visited the U.S, you’re probably curious to know why so many people decide to visit America each year. From its natural wonders to its unique and sometimes surprising culture.</p>
+<button formaction="destinationsPage.html" class="btn-more"><a class="explore" href="destinationsPage.html" target="_blank">Explore More</a></button>
+            </div>
+        </div>
+        <div class="slideshow-item">
+            <img src="https://cdn.discordapp.com/attachments/706405123437494274/777258859001675796/pexels-zhangeldy-beimish-1583339IND.jpg" alt="">
+            <div class="text">
+                <h5>India</h5>
+                <p>Be it mountains or plains, beaches or backwaters, wildlife tours or adventure activities, secluded islands or bustling metropolitan, culinary delights or local drinks, spiritual holidays or romantic vacations. For those travelers who are visiting India for the first time, the tourist destinations in India offer every reason that makes them wish they stayed a little longer in India.</p>
+<button formaction="destinationsPage.html" class="btn-more"><a class="explore" href="destinationsPage.html" target="_blank">Explore More</a></button>            </div>
+        </div>
+                <div class="slideshow-item">
+            <img src="https://cdn.discordapp.com/attachments/706405123437494274/777258853108023305/pexels-pixabay-161251Japan.jpg" alt="">
+            <div class="text">
+                <h5>Japan</h5>
+                <p>Whether you're dying to explore Japanese history and culture at the variety of UNESCO World Heritage Sites in the country, indulge in diverse Japanese cuisine, or experience a ride on the lighting-fast Shinkansen trains, a trip to Japanese promises adventure around every corner.</p>
+<button formaction="destinationsPage.html" class="btn-more"><a class="explore" href="destinationsPage.html" target="_blank">Explore More</a></button>
+            </div>
+        </div>
+            <div class="slideshow-item">
+            <img src="https://cdn.discordapp.com/attachments/706405123437494274/777258841527943198/pexels-david-pinheiro-4768936.jpg" alt="">
+            <div class="text">
+                <h5>NEPAL</h5>
+                <p>Nepal is a country of contrasts. Spectacular natural riches combine with a vibrant culture and sense of history. Home to ten of the world's 14 highest mountains, the country offers a magnificent setting for hiking and mountaineering, as well as some of the world's best white water rafting.</p>
+<button formaction="destinationsPage.html" class="btn-more"><a class="explore" href="destinationsPage.html" target="_blank">Explore More</a></button>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    html {
+        font-size: 10px;
+    }
+    body{
+        background-color: black;
+    }
+    .slideshow{
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        background-color: black;
+    }
+    .slideshow-item{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        opacity: 0;
+        animation: controlBG 31s infinite;
+    } 
+
+    .slideshow-item img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: zoom 51s infinite;
+
+    }
+        .slideshow-item:nth-child(1),
+          .slideshow-item:nth-child(1){
+        animation-delay: 0s;
+    }
+    
+    .slideshow-item:nth-child(2),
+      .slideshow-item:nth-child(2){
+        animation-delay:6s;
+    }
+    
+    .slideshow-item:nth-child(3),
+      .slideshow-item:nth-child(3){
+        animation-delay: 12s;
+    }
+    
+    .slideshow-item:nth-child(4),
+      .slideshow-item:nth-child(4){
+        animation-delay: 18s;
+    }
+    
+    .slideshow-item:nth-child(5),
+      .slideshow-item:nth-child(5){
+        animation-delay: 24s;
+    }
+        .slideshow-item:nth-child(6),
+      .slideshow-item:nth-child(6){
+        animation-delay: 30s;
+    }
+    .text{
+        width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        color: white;
+        padding: 5rem 5rem;
+        background-color: rgba(0,0,0,.5);
+
+    }
+    .text h5{
+    color: white;
+    letter-spacing: 3px;
+    font-size: 5rem;
+    font-family: "Space Grotesk", sans-serif;
+    text-transform: uppercase; 
+    margin-bottom: 2.5rem;
+    }
+    .text p{
+     line-height: 2rem;
+    font-size: 1.6rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+        letter-spacing: 2px;
+    }
+    @keyframes controlBG {
+        0%{opacity: 0;}
+        24%{opacity: 1;}
+        48%{opacity: 0;}
+       
+    }
+    @keyframes zoom {
+        100%{
+            transform: scale(1.30);
+        }
+    }
+    .nav{
+        position: absolute;
+        top: 0.5vh;
+        z-index: 2;
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-around;
+        color: white;
+        padding-top: 0.5%;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2rem;
+    }
+    
+    .btn-more{
+        position: relative;
+        margin-top: 50px;
+        padding: 5px 10px 5px 10px;
+        border: none;
+        border-radius: 3px;
+    }
+    
+    .btn-more:hover{
+        cursor: pointer;
+        color: white;
+        background-color: black;
+    }
+    
+    .explore{
+       color: black;
+       text-decoration: none;
+    }
+    
+    .nav-link{
+        text-decoration: none;
+        color: white;
+        font-family: "Space Grotesk", sans-serif;
+    }
+    
+    .nav-link:hover{
+        color: black;
+    }
+    @media screen and (max-width: 1000px) {
+    	 .text{
+        width: 70%;
+        position: absolute;
+
+        padding: 2.5rem 0.7rem;
+
+    }
+    .text h5{
+    color: white;
+    letter-spacing: 3px;
+    font-size: 3rem;
+/*    font-family: "Space Grotesk", sans-serif;
+    text-transform: uppercase; */
+    margin-bottom: 2.5rem;
+    }
+     .nav{
+    	font-size: 1.6rem;
+    }
+    }
+    @media screen and (max-width: 767px) {
+    	 .text{
+        width: 90%;
+        position: absolute;
+        top: initial;
+        transform: initial;
+        bottom: 0;
+        padding: 1.5rem;
+
+    }
+    .text h5{
+    color: white;
+    font-size: 2rem;
+
+    }
+    .text p{
+     line-height: 1.3rem;
+    font-size: 1.1rem;
+    color: white;
+   letter-spacing: normal;
+    }
+    .nav{
+    	font-size: 1.2rem;
+    }
+    }
+
+    
+</style>
+</html>

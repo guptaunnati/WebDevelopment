@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script  type="text/javascript" src="https://codesandbox.io/public/sse-hooks/sse-hooks.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+</head>
+
+
+<body>
+    <section class="container-fluid px-0 mx-0">
+        <div class="row" >
+            <div class="col-xl-8 px-0 mx-0 wid" style = "width: 80%; display: flex; justify-content: space-between; ">
+                <nav id="mainNavbar" class="navbar navbar-light navbar-expand-md py-0 fixed-top  ">
+                    <div class="nav-left" >
+                        <a href="./guideFinal.html" class="navbar-brand">Travel Companion</a>
+                    </div>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks"
+                        aria-label="Toggle Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                   <div class="nav-right">
+                       <div class="collapse navbar-collapse" id="navLinks">
+                        <ul class="navbar-nav navbar-nav-r">
+                            <li class="nav-item">
+                                <a href="./Homepage.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./destinationsPage.html" class="nav-link">Destinations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./blog.html" class="nav-link">Blogs</a>
+                            </li>
+                        </ul>
+                       </div>
+                  </div>
+                </nav>
+                <div class="container-fluid px-0 b0">
+                    <div class="row">
+                        <div class="col-xl-4 lg-img b1"></div>
+                        <div class="col-xl-4 lg-img b2"></div>
+                        <div class="col-xl-4 lg-img b3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 py-0 my-0 wid">
+                <div class="container-fluid d-flex flex-column login px-0">
+                    <div class="gif"></div>
+                    <div class="container inp d-flex flex-column align-items-center justify-content-center">
+                        <form class="login-page m-2">
+                            <div class="form-group">
+                                <label class="py-2 pr-2 my-1 mr-1" for="Email1">Email address</label>
+                                <input type="email" class="form-control" id="Email1" aria-describedby="emailHelp"
+                                    placeholder="abc@xyz.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="py-2 pr-2 my-1 mr-1" for="Password1">Password</label>
+                                <input type="password" class="form-control" id="Password1" placeholder="Password">
+                            </div>
+                            
+                                <button formaction="file:///C:/Users/MM's/coding%20pract/JS_PRACT/NEW%20WEBSITE/Tourism/INSITE_FINAL/Homepage.html" class="btn btn-success py-2 px-5"><a class="lg" target="_blank" href="Homepage.html">Login</a></button>
+                            
+                        </form>
+                        <div><a class="text-left" href="signup.html">New User? Register Here!!!</a></div>
+                    </div>
+                    <div class="align-self-center text-center font-weight-bolder foot">READY TO EXPLORE?</div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <script crossorigin type="text/javascript" src="https://codesandbox.io/static/js/watermark-button.ccc763f75.js"></script>
+  </body>
+
+</html>
